@@ -2,6 +2,7 @@ from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import Text
+from sqlalchemy import Float
 from sqlalchemy import ForeignKey
 
 from app.db.base import Base
@@ -18,8 +19,14 @@ class TranscriptChunk(Base):
         ForeignKey("videos.id")
     )
 
+    chunk_index = Column(Integer)
+
     chunk_text = Column(Text)
 
     source = Column(String)
+
+    start_time = Column(Float)
+
+    end_time = Column(Float)
 
     timestamp = Column(String)
